@@ -24,7 +24,7 @@ import com.desafio.desafioback.repositorio.ProdutoRepositorio;
 
 
 @RestController @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/v1")
+@RequestMapping("/api")
 
 public class ProdutosController {
 
@@ -40,13 +40,40 @@ public class ProdutosController {
     public ResponseEntity<Produto> getProdutoById(@PathVariable(value = "id") Long produtoId)
         throws ProdutoException {
             Produto produto = produtoRepositorio.findById(produtoId)
-          .orElseThrow(() -> new ProdutoException("Produto nao encontrado com este ID :: " + produtoId));
+          .orElseThrow(() -> new ProdutoException("Produto nao encontrado com este ID: " + produtoId));
         return ResponseEntity.ok().body(produto);
     }
 
     @PostMapping("/Produtos")
     public Produto createProduto(@Valid @RequestBody Produto produto) {
         return produtoRepositorio.save(produto);
+    }
+
+    @PutMapping("/Produtos/{id}")
+    public ResponseEntity<Produto> updateProduto(@PathVariable(value = "id") Long  produtoId,
+         @Valid @RequestBody Produto produtoDetalhes) throws ProdutoException {
+            Produto produto = produtoRepositorio.findById(produtoId)
+        .orElseThrow(() -> new ProdutoException("Produto nao encontrado com o ID: " + produtoId));
+
+        produto.setNome(produtoDetalhes.getNome());
+        produto.setPreco(produtoDetalhes.getPreco());
+        produto.setCodigo(produtoDetalhes.getCodigo());
+        produto.setCategoria(produtoDetalhes.getCategoria());
+        produto.setStatus(produtoDetalhes.getStatus());
+        final Produto updateProduto = produtoRepositorio.save(produto);
+        return ResponseEntity.ok(updateProduto);
+    }
+
+    @DeleteMapping("/Produtos/{id}")
+    public Map<String, Boolean> deleteProduto(@PathVariable(value = "id") Long produtoId)
+         throws ProdutoException {
+        Produto produto = produtoRepositorio.findById(produtoId)
+       .orElseThrow(() -> new ProdutoException("Produto nao encontrado com o ID: " + produtoId));
+
+       produtoRepositorio.delete(produto);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("DELETADO", Boolean.TRUE);
+        return response;
     }
     
 }
