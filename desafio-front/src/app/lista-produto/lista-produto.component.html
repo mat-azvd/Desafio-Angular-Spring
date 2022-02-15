@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Lista de Produtos</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Status</th>
+            <th>Codigo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtos | async">
+            <td>{{produto.nome}}</td>
+            <td>{{produto.preço}}</td>
+            <td>{{produto.categoria}}</td>
+            <td>{{produto.status}}</td>
+            <td>{{produto.codigo}}</td>
+            <td><button (click)="deleteProduto(produto.id)" class="btn btn-danger">Delete</button>
+                <button (click)="produtoDetalhes(produto.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
