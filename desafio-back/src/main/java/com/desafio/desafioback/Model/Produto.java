@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "Produtos")
+@Table(name = "produtos")
 
 public class Produto { 
     
@@ -86,7 +86,7 @@ public class Produto {
 
    @Override
     public String toString() {
-        return "Produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", codigo=" + codigo
+        return "produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", codigo=" + codigo
        + ", categoria=" + categoria + ", status=" + status + ",]";
     }
 

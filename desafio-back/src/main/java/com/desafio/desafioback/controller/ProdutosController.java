@@ -31,12 +31,12 @@ public class ProdutosController {
     @Autowired
     private ProdutoRepositorio produtoRepositorio;
 
-    @GetMapping("/Produtos")
+    @GetMapping("/produtos")
     public List<Produto> getAllProdutos() {
         return produtoRepositorio.findAll();
     }
 
-    @GetMapping("/Produtos/{id}")
+    @GetMapping("/produtos/{id}")
     public ResponseEntity<Produto> getProdutoById(@PathVariable(value = "id") Long produtoId)
         throws ProdutoException {
             Produto produto = produtoRepositorio.findById(produtoId)
@@ -44,12 +44,12 @@ public class ProdutosController {
         return ResponseEntity.ok().body(produto);
     }
 
-    @PostMapping("/Produtos")
+    @PostMapping("/produtos")
     public Produto createProduto(@Valid @RequestBody Produto produto) {
         return produtoRepositorio.save(produto);
     }
 
-    @PutMapping("/Produtos/{id}")
+    @PutMapping("/produtos/{id}")
     public ResponseEntity<Produto> updateProduto(@PathVariable(value = "id") Long  produtoId,
          @Valid @RequestBody Produto produtoDetalhes) throws ProdutoException {
             Produto produto = produtoRepositorio.findById(produtoId)
@@ -64,7 +64,7 @@ public class ProdutosController {
         return ResponseEntity.ok(updateProduto);
     }
 
-    @DeleteMapping("/Produtos/{id}")
+    @DeleteMapping("/produtos/{id}")
     public Map<String, Boolean> deleteProduto(@PathVariable(value = "id") Long produtoId)
          throws ProdutoException {
         Produto produto = produtoRepositorio.findById(produtoId)
