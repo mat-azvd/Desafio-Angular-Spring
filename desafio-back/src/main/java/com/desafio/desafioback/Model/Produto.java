@@ -1,4 +1,4 @@
-package com.desafio.desafioback.Model;
+package com.desafio.desafioback.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Produtos")
 
-public class Produto {
+public class Produto { 
     
     private long id;
     private String nome;
