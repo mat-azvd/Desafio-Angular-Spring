@@ -3,7 +3,8 @@ package com.desafio.desafioback.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.xml.validation.Validator;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import com.desafio.desafioback.repositorio.ProdutoRepositorio;
 
 @RestController @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/v1")
+
 public class ProdutosController {
 
     @Autowired
@@ -43,8 +45,8 @@ public class ProdutosController {
     }
 
     @PostMapping("/Produtos")
-    public Produto createEmployee(@Validator @RequestBody Produto produto) {
-        return ProdutoRepositorio.save(produto);
+    public Produto createProduto(@Valid @RequestBody Produto produto) {
+        return produtoRepositorio.save(produto);
     }
     
 }
