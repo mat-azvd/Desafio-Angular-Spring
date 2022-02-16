@@ -20,8 +20,8 @@
             <td>{{produto.categoria}}</td>
             <td>{{produto.status}}</td>
             <td>{{produto.codigo}}</td>
-            <td><button (click)="deleteProduto(produto.id)" class="btn btn-danger">Delete</button>
-                <button (click)="produtoDetalhes(produto.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+            <td><button mat-raised-button color="primary" (click)="deleteProduto(produto.id)" class="btn btn-danger">Delete</button>
+                <button mat-raised-button color="primary" (click)="produtoDetalhes(produto.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
             </td>
           </tr>
         </tbody>
