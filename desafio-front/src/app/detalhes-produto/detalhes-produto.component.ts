@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Produto } from '../criar-produto/produto';
+import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 import { ListaProdutoComponent } from '../lista-produto/lista-produto.component';
 import { Router, ActivatedRoute } from '@angular/router';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Produto} from '../criar-produto/produto';
+import {Produto} from '../produto';
 import { Observable } from "rxjs";
 import { Router } from '@angular/router';
 import {ProdutoService} from '../produto.service'
@@ -25,7 +25,7 @@ export class ListaProdutoComponent implements OnInit {
   }
 
   reloadData() {
-    this.produto = this.produtoService.getProdutoList();
+    this.produto = this.produtoService.getListaProduto();
   }
 
   deleteProduto(id: number) {

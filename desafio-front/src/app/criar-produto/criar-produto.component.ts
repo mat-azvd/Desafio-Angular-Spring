@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { Produto } from './produto';
+import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 
 @Component({
@@ -19,8 +19,7 @@ export class CriarProdutoComponent implements OnInit {
     private produtoService: ProdutoService,
     private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   newProduto(): void {
     this.submitted = false;
@@ -43,7 +42,7 @@ export class CriarProdutoComponent implements OnInit {
   }
 
   getList() {
-    this.router.navigate(['/employees']);
+    this.router.navigate(['/produtos']);
   }
 
 }

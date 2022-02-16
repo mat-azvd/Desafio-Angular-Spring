@@ -1,1 +1,26 @@
-<p>detalhes-produto works!</p>
+<h2>Detalhes</h2> 
+
+<hr/>
+<div *ngIf="produto">
+  <div>
+    <label><b>Produto: </b></label> {{produto.nome}}
+  </div>
+  <div>
+    <label><b>Preço: </b></label> {{produto.preco}}
+  </div>
+  <div>
+    <label><b>Codigo:</b></label> {{produto.codigo}}
+  </div>
+  
+  <div>
+    <label><b>Status:</b></label> {{produto.status}}
+  </div> 
+
+  <div>
+    <label><b>Categoria:</b></label> {{produto.categoria}}
+  </div> 
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Voltar</button><br>
