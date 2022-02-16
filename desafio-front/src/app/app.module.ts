@@ -8,6 +8,9 @@ import { DetalhesProdutoComponent } from './produto/detalhes-produto/detalhes-pr
 import { ListaProdutoComponent } from './produto/lista-produto/lista-produto.component';
 import { UpdateProdutoComponent } from './produto/update-produto/update-produto.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { UpdateProdutoComponent } from './produto/update-produto/update-produto.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

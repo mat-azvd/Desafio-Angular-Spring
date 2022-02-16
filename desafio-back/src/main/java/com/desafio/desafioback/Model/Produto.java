@@ -13,29 +13,32 @@ import javax.persistence.Table;
 
 public class Produto { 
     
-    private long id;
+    private Long id;
     private String nome;
     private double preco;
     private String codigo; 
     private String categoria; 
     private String status;
 
-    
 
-    public Produto(String nome, double preco, String codigo, String categoria, String status) {
-        this.nome = nome;
-        this.preco = preco;
-        this.codigo = codigo;
-        this.categoria = categoria;
-        this.status = status;
-   }
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-       public long getId() {
+       public Long getId() {
        return id;
    }
-   public void setId(long id) {
+
+   public Produto(){}
+
+   public Produto(String nome, double preco, String codigo, String categoria, String status) {
+    this.nome = nome;
+    this.preco = preco;
+    this.codigo = codigo;
+    this.categoria = categoria;
+    this.status = status;
+}
+
+   public void setId(Long id) {
        this.id = id;
    }
 
@@ -87,7 +90,7 @@ public class Produto {
    @Override
     public String toString() {
         return "produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", codigo=" + codigo
-       + ", categoria=" + categoria + ", status=" + status + ",]";
+       + ", categoria=" + categoria + ", status=" + status + "]";
     }
 
 }
