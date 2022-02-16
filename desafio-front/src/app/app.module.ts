@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CriarProdutoComponent } from './criar-produto/criar-produto.component';
-import { DetalhesProdutoComponent } from './detalhes-produto/detalhes-produto.component';
-import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
-import { UpdateProdutoComponent } from './update-produto/update-produto.component';
+import { CriarProdutoComponent } from './produto/criar-produto/criar-produto.component';
+import { DetalhesProdutoComponent } from './produto/detalhes-produto/detalhes-produto.component';
+import { ListaProdutoComponent } from './produto/lista-produto/lista-produto.component';
+import { UpdateProdutoComponent } from './produto/update-produto/update-produto.component';
 
 @NgModule({
   declarations: [
