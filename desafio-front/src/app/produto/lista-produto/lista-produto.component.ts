@@ -21,7 +21,12 @@ export class ListaProdutoComponent implements OnInit {
 
   constructor(private produtoService: ProdutoService,
     //private router: Router,
-    private dialog: MatDialog) {}
+    private dialog: MatDialog) {
+      this.produtoService.atualiza().subscribe((m:any)=>{
+        console.log(m);
+        this.reloadData();
+      })
+    }
 
   ngOnInit() {
     this.reloadData();

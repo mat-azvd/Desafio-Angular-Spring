@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 
+import {MatDialog, MatDialogRef} from '@angular/material/dialog'
+
 @Component({
   selector: 'app-criar-produto',
   templateUrl: './criar-produto.component.html',
@@ -17,7 +19,10 @@ export class CriarProdutoComponent implements OnInit {
 
   constructor(
     private produtoService: ProdutoService,
-    private router: Router) { }
+    private router: Router,
+    public dialogbox: MatDialogRef<CriarProdutoComponent>,
+    private dialogRef: MatDialog) { }
+
 
   ngOnInit() {}
 
@@ -45,4 +50,23 @@ export class CriarProdutoComponent implements OnInit {
     this.router.navigate(['/produtos']);
   }
 
-}
+  onClose(){
+    this.dialogbox.close()
+    this.produtoService.filter('Atualiza');
+       
+  }
+
+ 
+  
+  /*
+   reloadData() {
+    this.produto = this.produtoService.getListaProduto();
+    this.router.navigate(['/produtos']);
+  }
+  const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "70%";
+    this.dialog.open(CriarProdutoComponent, dialogConfig);
+*/
+  }

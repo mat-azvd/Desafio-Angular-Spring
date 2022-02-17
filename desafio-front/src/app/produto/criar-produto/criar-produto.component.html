@@ -28,9 +28,10 @@
 
     <button type="submit" class="btn btn-success">Criar</button>
   </form>
+  <button (click)="onClose()" class="btn btn-success">Fechar</button>
 </div>
 
 <div [hidden]="!submitted">
   <h4>Cadastrado com sucesso!</h4>
-  
+  <button (click)="onClose()" class="btn btn-success">Fechar</button>
 </div>

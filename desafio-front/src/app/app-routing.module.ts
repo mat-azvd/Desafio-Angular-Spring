@@ -7,7 +7,7 @@ import {CriarProdutoComponent} from './produto/criar-produto/criar-produto.compo
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'produto', pathMatch: 'full'},
+  { path: '', redirectTo: 'produtos', pathMatch: 'full'},
   { path: 'produtos', component: ListaProdutoComponent},
   { path: 'criar', component: CriarProdutoComponent},
   { path: 'detalhes/:id', component: DetalhesProdutoComponent},

@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 
 import {HttpClient} from '@angular/common/http';
 
+import { Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +37,15 @@ export class ProdutoService {
 
   deleteProduto(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+
+  private atualizador = new Subject<any>();
+  atualiza(): Observable<any> {
+    return this.atualizador.asObservable();
+  }
+
+  filter(filterBy: string){
+    this.atualizador.next(filterBy);
   }
 
 
