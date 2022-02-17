@@ -15,6 +15,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTableModule} from "@angular/material/table";
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
@@ -34,7 +37,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatDialogModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

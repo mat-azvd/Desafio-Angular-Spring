@@ -1,10 +1,12 @@
-<h3>Cadastrar Produto</h3>
+<h3>Criar Produto</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Produto</label>
-      <input type="text" class="form-control" id="nome" required [(ngModel)]="produto.nome" name="nome">
-    </div>
+    <p>
+      <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label >Produto</mat-label>
+      <input matInput type="text" class="form-control" id="nome" required [(ngModel)]="produto.nome" name="nome">
+      </mat-form-field>
+   </p>
 
     <div class="form-group">
       <label for="name">Preço</label>
