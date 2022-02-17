@@ -4,7 +4,23 @@
 
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-primary: mat.define-palette(mat.$indigo-palette, 300);
+
+.table{
+    background-color: white;
+}
+
+.elements{
+    border-width: 20px;
+    border-color: black;
+}
+
+.grid{
+    background-color: blue;
+    border-style: groove;
+    border-width: 20px;
+    border-color: black;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

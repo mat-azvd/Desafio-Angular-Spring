@@ -5,28 +5,71 @@
       <h2>Lista de Produtos</h2>
     </div>
     <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Produto</th>
-            <th>Preço</th>
-            <th>Categoria</th>
-            <th>Status</th>
-            <th>Codigo</th>
-          </tr>
-        </thead>
-        <tbody>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">   
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Produto </th>
+          <td mat-cell *matCellDef="let produto"> {{produto.nome}} </td>
+    
+        </ng-container>
+
+        <ng-container matColumnDef="preco">
+          <th mat-header-cell *matHeaderCellDef> Preço </th>
+          <td mat-cell *matCellDef="let produto"> {{produto.preco}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef> codigo </th>
+          <td mat-cell *matCellDef="let produto"> {{produto.codigo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef> categoria </th>
+          <td mat-cell *matCellDef="let produto"> {{produto.categoria}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> status </th>
+          <td mat-cell *matCellDef="let produto"> {{produto.status}} </td>
+        </ng-container>
+
+        
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+      </table>
+    </div>
+  </div>
+
+
+<!--
+  <th>Produto</th>
+        <th>Preço</th>
+        <th>Categoria</th>
+        <th>Status</th>
+        <th>Codigo</th>
+        <tbody class="elements">
           <tr *ngFor="let produto of produto | async">
             <td>{{produto.nome}}</td>
             <td>{{produto.preco}}</td>
             <td>{{produto.categoria}}</td>
             <td>{{produto.status}}</td>
             <td>{{produto.codigo}}</td>
-            <td><button mat-raised-button color="primary" (click)="deleteProduto(produto.id)" class="btn btn-danger">Delete</button>
-                <button mat-raised-button color="primary" (click)="updateProduto(produto.id)" class="btn btn-info" style="margin-left: 10px">Alterar</button>
-            </td>
+          <td>
+              <button mat-raised-button color="primary" (click)="deleteProduto(produto.id)" class="btn btn-danger">Delete</button>
+              <button mat-raised-button color="primary" (click)="updateProduto(produto.id)" class="btn btn-info" style="margin-left: 10px">Alterar</button>
+          </td>
           </tr>
         </tbody>
-      </table>
-    </div>
-  </div>
+
+        <ng-container matColumnDef="update">
+          <th mat-header-cell *matHeaderCellDef> update </th>
+          <td mat-cell *matCellDef="let produto"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> status </th>
+          <td mat-cell *matCellDef="let produto"> {{produto.status}} </td>
+        </ng-container>
+-->

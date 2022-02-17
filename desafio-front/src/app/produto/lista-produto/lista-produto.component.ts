@@ -7,6 +7,8 @@ import {DetalhesProdutoComponent} from '../detalhes-produto/detalhes-produto.com
 
 import {UpdateProdutoComponent} from '../update-produto/update-produto.component'
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog'
+import {MatTableDataSource} from '@angular/material/table';
+import {DataSource} from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-lista-produto',
@@ -28,13 +30,23 @@ export class ListaProdutoComponent implements OnInit {
       })
     }
 
+    public displayedColumns: string[] = ['nome','preco','codigo','categoria','status'];
+
+    public dataSource = new MatTableDataSource<Produto>();
+
+    
+
   ngOnInit() {
     this.reloadData();
-
+    console.log(this.produto);
   }
 
   reloadData() {
     this.produto = this.produtoService.getListaProduto();
+    this.produtoService.getListaProduto().subscribe((res) =>{
+    console.log(res);
+    this.dataSource.data = res;
+    })
   }
 
   deleteProduto(id: number) {
