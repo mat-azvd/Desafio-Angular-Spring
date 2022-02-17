@@ -46,7 +46,7 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.reloadData();
-    //this.dataSource.sort = this.sort;
+    
     console.log(this.paginator);
     console.log(this.dataSource.paginator);
   }
@@ -91,7 +91,6 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
 
 }
 
-//this.router.navigate(['detalhes', id]);
 
 /*applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
@@ -101,4 +100,8 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator.firstPage();
   }
 }
+
+this.router.navigate(['detalhes', id]);
+
+this.dataSource.sort = this.sort;
 */

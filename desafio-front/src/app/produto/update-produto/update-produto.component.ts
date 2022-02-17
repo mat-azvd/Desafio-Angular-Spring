@@ -60,7 +60,9 @@ export class UpdateProdutoComponent implements OnInit {
   }
 
   onClose(){
+    this.produtoService.filter('Atualiza');
     this.dialogbox.close();
+    
   }
 
 }
