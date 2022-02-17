@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit,ViewChild } from '@angular/core';
 import {Produto} from '../produto';
 import { Observable } from "rxjs";
 import { Router } from '@angular/router';
@@ -20,11 +20,12 @@ import {MatSort} from '@angular/material/sort';
 })
 
 
-export class ListaProdutoComponent implements OnInit {
+export class ListaProdutoComponent implements OnInit, AfterViewInit {
 
   produto: Observable<Produto[]>;
   //sort: MatSort;
-  paginator: MatPaginator;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
 
   constructor(private produtoService: ProdutoService,
@@ -39,14 +40,15 @@ export class ListaProdutoComponent implements OnInit {
     public displayedColumns: string[] = ['nome','preco','codigo','categoria','status','idDelete','idUpdate'];
 
     public dataSource = new MatTableDataSource<Produto>();
+    
 
     
 
   ngOnInit() {
     this.reloadData();
-    this.dataSource.paginator = this.paginator;
     //this.dataSource.sort = this.sort;
-    console.log(this.produto);
+    console.log(this.paginator);
+    console.log(this.dataSource.paginator);
   }
 
   reloadData() {
@@ -76,6 +78,12 @@ export class ListaProdutoComponent implements OnInit {
     dialogConfig.data = id;
     console.log(dialogConfig.data);
     this.dialog.open(UpdateProdutoComponent, dialogConfig);
+
+  }
+
+  ngAfterViewInit(){
+    this.dataSource.paginator = this.paginator;
+    console.log(this.dataSource.paginator);
 
   }
 
