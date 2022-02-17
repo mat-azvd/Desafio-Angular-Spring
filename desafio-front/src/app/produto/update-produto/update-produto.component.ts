@@ -4,6 +4,7 @@ import { ProdutoService } from '../produto.service';
 import { Produto } from '../produto';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-produto',
@@ -14,9 +15,11 @@ export class UpdateProdutoComponent implements OnInit {
 
   id: number;
   produto: Produto;
+  submitted = false;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private produtoService: ProdutoService) { }
+    private produtoService: ProdutoService,
+    public dialogbox: MatDialogRef<UpdateProdutoComponent>) { }
 
   ngOnInit() {
 
@@ -32,7 +35,7 @@ export class UpdateProdutoComponent implements OnInit {
 
   }
 
-  updateProduto() {
+  updateProduto(id: number) {
     this.produtoService.updateProduto(this.id, this.produto)
       .subscribe(data => {
         console.log(data);
@@ -42,11 +45,16 @@ export class UpdateProdutoComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updateProduto();    
+    this.submitted = true;
+    this.updateProduto(this.id);    
   }
 
   getList() {
     this.router.navigate(['/produtos']);
+  }
+
+  onClose(){
+    this.dialogbox.close();
   }
 
 }

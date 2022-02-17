@@ -1,1 +1,38 @@
-<p>update-produto works!</p>
+<h3>Update produto</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="nome"><b>Produto: </b></label> {{produto.nome}}
+          <input type="text" class="form-control" id="nome" required [(ngModel)]="produto.nome" name="nome">
+        </div>
+    
+        <div class="form-group">
+          <label for="preco"><b>Preço: </b></label> {{produto.preco}}
+          <input type="text" class="form-control" id="preco" required [(ngModel)]="produto.preco" name="preco">
+        </div>
+    
+        <div class="form-group">
+          <label for="categoria"><b>Categoria:</b></label> {{produto.categoria}}
+          <input type="text" class="form-control" id="categoria" required [(ngModel)]="produto.categoria" name="categoria">
+        </div>
+    
+        <div class="form-group">
+            <label for="codigo"><b>Codigo:</b></label> {{produto.codigo}}
+            <input type="text" class="form-control" id="codigo" required [(ngModel)]="produto.codigo" name="codigo">
+          </div>
+    
+          <div class="form-group">
+            <label for="status"><b>Status:</b></label> {{produto.status}}
+            <input type="text" class="form-control" id="status" required [(ngModel)]="produto.status" name="status">
+          </div>
+    
+        <button type="submit" (click)="updateProduto(produto.id)" class="btn btn-success">Alterar</button>
+        
+      </form>
+      <button (click)="onClose()" class="btn btn-success">Cancelar</button>
+    </div>
+    
+    <div [hidden]="!submitted">
+        <h4>Alterado com sucesso!</h4>
+        
+      </div>

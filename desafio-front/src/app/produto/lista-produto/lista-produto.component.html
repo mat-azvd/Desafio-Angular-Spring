@@ -21,7 +21,7 @@
             <td>{{produto.status}}</td>
             <td>{{produto.codigo}}</td>
             <td><button mat-raised-button color="primary" (click)="deleteProduto(produto.id)" class="btn btn-danger">Delete</button>
-                <button mat-raised-button color="primary" (click)="produtoDetalhes(produto.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+                <button mat-raised-button color="primary" (click)="updateProduto(produto.id)" class="btn btn-info" style="margin-left: 10px">Alterar</button>
             </td>
           </tr>
         </tbody>

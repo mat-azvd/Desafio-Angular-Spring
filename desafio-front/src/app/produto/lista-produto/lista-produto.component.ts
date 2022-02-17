@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {ProdutoService} from '../produto.service'
 import {DetalhesProdutoComponent} from '../detalhes-produto/detalhes-produto.component'
 
+import {UpdateProdutoComponent} from '../update-produto/update-produto.component'
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog'
 
 @Component({
@@ -41,12 +42,15 @@ export class ListaProdutoComponent implements OnInit {
         error => console.log(error));
   }
 
-  produtoDetalhes(id: number){   
+  updateProduto(id: number){ 
+    console.log(id);  
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "70%";
-    this.dialog.open(DetalhesProdutoComponent, dialogConfig);
+    dialogConfig.data = id;
+    console.log(dialogConfig.data);
+    this.dialog.open(UpdateProdutoComponent, dialogConfig);
 
   }
 
