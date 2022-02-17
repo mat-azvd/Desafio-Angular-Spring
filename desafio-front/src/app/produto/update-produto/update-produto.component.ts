@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ProdutoService } from '../produto.service';
 
 import { Produto } from '../produto';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { MatDialogRef } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-produto',
@@ -16,16 +16,22 @@ export class UpdateProdutoComponent implements OnInit {
   id: number;
   produto: Produto;
   submitted = false;
+  dado: number;
+
 
   constructor(private route: ActivatedRoute,private router: Router,
     private produtoService: ProdutoService,
-    public dialogbox: MatDialogRef<UpdateProdutoComponent>) { }
+    public dialogbox: MatDialogRef<UpdateProdutoComponent>,
+    @Inject(MAT_DIALOG_DATA) data: any ) { 
+      this.dado=data;
+    }
 
   ngOnInit() {
 
+    console.log(this.dado)
     this.produto = new Produto();
 
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.dado;
 
     this.produtoService.getProduto(this.id)
     .subscribe(data => {
