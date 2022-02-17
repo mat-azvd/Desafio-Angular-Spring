@@ -30,7 +30,7 @@ export class ListaProdutoComponent implements OnInit {
       })
     }
 
-    public displayedColumns: string[] = ['nome','preco','codigo','categoria','status'];
+    public displayedColumns: string[] = ['nome','preco','codigo','categoria','status','idDelete','idUpdate'];
 
     public dataSource = new MatTableDataSource<Produto>();
 
