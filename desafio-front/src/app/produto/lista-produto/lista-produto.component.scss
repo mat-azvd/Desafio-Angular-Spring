@@ -1,0 +1,33 @@
+.panel {
+    position: relative;
+};
+
+.tabela-body{
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    max-height: 800px;
+    overflow: auto;
+};
+
+.tabela{
+    width: 100%;
+};
+
+.mat-column-number,
+.mat-column-state {
+  max-width: 90px;
+  min-width: 80px;
+};
+
+th { 
+    width: 20%;
+  };
+
+td {
+    width: 20%;
+  };
+
+button{
+    margin-right: 5px;
+}

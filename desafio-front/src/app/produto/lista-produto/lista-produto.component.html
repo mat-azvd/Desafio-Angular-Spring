@@ -1,12 +1,12 @@
 
 
-<div class="panel panel-primary">
+<div class="example-container mat-elevation-z8">
     <div class="panel-heading">
       <h2>Lista de Produtos</h2>
     </div>
-    <div class="panel-body">
+    <div class="tabela-body">
 
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">   
+      <table mat-table [dataSource]="dataSource" class="tabela">   
         <ng-container matColumnDef="nome">
           <th mat-header-cell *matHeaderCellDef> Produto </th>
           <td mat-cell *matCellDef="let produto"> {{produto.nome}} </td>
