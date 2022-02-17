@@ -10,6 +10,9 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog'
 import {MatTableDataSource} from '@angular/material/table';
 import {DataSource} from '@angular/cdk/collections';
 
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+
 @Component({
   selector: 'app-lista-produto',
   templateUrl: './lista-produto.component.html',
@@ -20,6 +23,9 @@ import {DataSource} from '@angular/cdk/collections';
 export class ListaProdutoComponent implements OnInit {
 
   produto: Observable<Produto[]>;
+  //sort: MatSort;
+  paginator: MatPaginator;
+
 
   constructor(private produtoService: ProdutoService,
     //private router: Router,
@@ -38,6 +44,8 @@ export class ListaProdutoComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+    this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
     console.log(this.produto);
   }
 
@@ -71,6 +79,18 @@ export class ListaProdutoComponent implements OnInit {
 
   }
 
+  
+
 }
 
 //this.router.navigate(['detalhes', id]);
+
+/*applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
+*/

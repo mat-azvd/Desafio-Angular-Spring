@@ -15,6 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTableModule} from "@angular/material/table";
 
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import {MatTableModule} from "@angular/material/table";
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent],
