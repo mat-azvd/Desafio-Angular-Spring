@@ -4,19 +4,23 @@ import { ProdutoService } from '../produto.service';
 import { ListaProdutoComponent } from '../lista-produto/lista-produto.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { MatDialogRef } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-detalhes-produto',
   templateUrl: './detalhes-produto.component.html',
-  styleUrls: ['./detalhes-produto.component.css']
+  styleUrls: ['./detalhes-produto.component.scss']
 })
 
 export class DetalhesProdutoComponent implements OnInit {
 
   id: number;
   produto: Produto;
+  mostrar: boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router, 
-    private produtoService: ProdutoService) { }
+    private produtoService: ProdutoService,
+    public dialogbox: MatDialogRef<DetalhesProdutoComponent>) { }
 
   ngOnInit() {
 
@@ -32,8 +36,11 @@ export class DetalhesProdutoComponent implements OnInit {
 
   }
 
-  list(){
-    this.router.navigate(['produtos']);
+  onClose(){
+    this.dialogbox.close();
   }
 
+
 }
+
+//this.router.navigate(['produtos']);

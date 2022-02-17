@@ -6,7 +6,7 @@ import { ProdutoService } from '../produto.service';
 @Component({
   selector: 'app-criar-produto',
   templateUrl: './criar-produto.component.html',
-  styleUrls: ['./criar-produto.component.css']
+  styleUrls: ['./criar-produto.component.scss']
 })
 
 export class CriarProdutoComponent implements OnInit {
