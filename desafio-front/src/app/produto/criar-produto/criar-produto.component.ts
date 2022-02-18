@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import {MatDialog, MatDialogRef} from '@angular/material/dialog'
 
 @Component({
@@ -15,16 +17,20 @@ export class CriarProdutoComponent implements OnInit {
 
   produto: Produto = new Produto();
 
+  form: FormGroup;
+
   submitted = false;
 
   constructor(
     private produtoService: ProdutoService,
     private router: Router,
     public dialogbox: MatDialogRef<CriarProdutoComponent>,
-    private dialogRef: MatDialog) { }
+    private dialogRef: MatDialog,
+    private fb: FormBuilder) { }
 
 
-  ngOnInit() {}
+  ngOnInit(){
+  }
 
   newProduto(): void {
     this.submitted = false;
@@ -39,6 +45,7 @@ export class CriarProdutoComponent implements OnInit {
       this.getList();
     }, 
     error => console.log(error));
+    
   }
 
   onSubmit() {

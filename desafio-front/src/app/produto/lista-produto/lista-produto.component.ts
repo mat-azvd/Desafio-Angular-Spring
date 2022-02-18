@@ -12,6 +12,7 @@ import {DataSource} from '@angular/cdk/collections';
 
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {DialogService} from 'src/app/dialog.service';
 
 @Component({
   selector: 'app-lista-produto',
@@ -30,6 +31,7 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
 
   constructor(private produtoService: ProdutoService,
     //private router: Router,
+    private dialogService: DialogService,
     private dialog: MatDialog) {
       this.produtoService.atualiza().subscribe((m:any)=>{
         console.log(m);
@@ -60,6 +62,7 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
   }
 
   deleteProduto(id: number) {
+    //this.dialogService.openConfirmDialog()
     this.produtoService.deleteProduto(id)
       .subscribe(
         data => {
@@ -67,6 +70,7 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
           this.reloadData();
         },
         error => console.log(error));
+    
   }
 
   updateProduto(id: number){ 
@@ -104,4 +108,12 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
 this.router.navigate(['detalhes', id]);
 
 this.dataSource.sort = this.sort;
+
+this.produtoService.deleteProduto(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
 */

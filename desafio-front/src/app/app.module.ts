@@ -20,6 +20,9 @@ import {MatInputModule} from '@angular/material/input';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {MatRadioModule} from '@angular/material/radio';
     CriarProdutoComponent,
     DetalhesProdutoComponent,
     ListaProdutoComponent,
-    UpdateProdutoComponent
+    UpdateProdutoComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +47,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatInputModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[DetalhesProdutoComponent]
+  entryComponents:[DetalhesProdutoComponent, MatConfirmDialogComponent]
 })
 export class AppModule { }
