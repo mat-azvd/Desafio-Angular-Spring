@@ -1,32 +1,49 @@
 <h3>Criar Produto</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+<div [hidden]="submitted" class="principal-form">
+  <form (ngSubmit)="onSubmit()" id="form">
     <p>
       <mat-form-field appearance="outline" floatLabel="always">
       <mat-label >Produto</mat-label>
       <input matInput type="text" class="form-control" id="nome" required [(ngModel)]="produto.nome" name="nome">
       </mat-form-field>
    </p>
+   
 
-    <div class="form-group">
-      <label for="name">Preço</label>
-      <input type="text" class="form-control" id="preco" required [(ngModel)]="produto.preco" name="preco">
-    </div>
+   <p>
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label >Preço</mat-label>
+      <input matInput type="text" class="form-control"  id="preco" required [(ngModel)]="produto.preco" name="preco">
+    </mat-form-field>
+  </p>
 
-    <div class="form-group">
-      <label for="name">Categoria</label>
-      <input type="text" class="form-control" id="categoria" required [(ngModel)]="produto.categoria" name="categoria">
-    </div>
+  <p>
+    <mat-label >Status</mat-label>
+  <mat-radio-group  required [(ngModel)]="produto.status" name="status">
+    <p></p>
+    <mat-radio-button value="Disponivel">Disponivel</mat-radio-button>
+    <mat-radio-button value="Nao Disponivel">Não Disponivel</mat-radio-button>
+  </mat-radio-group>
+  </p>
 
+  <p>
+    <mat-label >Categoria</mat-label>
+    <mat-radio-group  required [(ngModel)]="produto.categoria" name="categoria">
+     <p></p>
+      <mat-radio-button value="A">Categoria A</mat-radio-button>
+      <mat-radio-button value="B">Categoria B</mat-radio-button>
+      <p></p>
+      <mat-radio-button value="C">Categoria C</mat-radio-button>
+      <mat-radio-button value="D">Categoria D</mat-radio-button>
+    </mat-radio-group>
+    </p>
+
+  
     <div class="form-group">
         <label for="name">Codigo</label>
         <input type="text" class="form-control" id="codigo" required [(ngModel)]="produto.codigo" name="codigo">
       </div>
 
-      <div class="form-group">
-        <label for="name">Status</label>
-        <input type="text" class="form-control" id="status" required [(ngModel)]="produto.status" name="status">
-      </div>
+      
 
     <button type="submit" class="btn btn-success">Criar</button>
   </form>
@@ -37,3 +54,10 @@
   <h4>Cadastrado com sucesso!</h4>
   <button (click)="onClose()" class="btn btn-success">Fechar</button>
 </div>
+
+<!--
+  <div class="form-group">
+      <label for="name">Categoria</label>
+      <input type="text" class="form-control" id="categoria" required [(ngModel)]="produto.categoria" name="categoria">
+    </div>
+-->
