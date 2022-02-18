@@ -18,6 +18,8 @@ export class UpdateProdutoComponent implements OnInit {
   submitted = false;
   dado: number;
 
+  //categorias: string[] = ['A', 'B', 'C', 'D'];
+
 
   constructor(private route: ActivatedRoute,private router: Router,
     private produtoService: ProdutoService,
@@ -32,6 +34,8 @@ export class UpdateProdutoComponent implements OnInit {
     this.produto = new Produto();
 
     this.id = this.dado;
+
+    
 
     this.produtoService.getProduto(this.id)
     .subscribe(data => {

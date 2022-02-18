@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit,ViewChild } from '@angular/core';
 import {Produto} from '../produto';
-import { Observable } from "rxjs";
+import { Observable,merge } from "rxjs";
+import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {ProdutoService} from '../produto.service'
 import {DetalhesProdutoComponent} from '../detalhes-produto/detalhes-produto.component'
@@ -26,8 +27,12 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
   produto: Observable<Produto[]>;
   //sort: MatSort;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached = false;
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private produtoService: ProdutoService,
     //private router: Router,
@@ -88,7 +93,18 @@ export class ListaProdutoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){
     this.dataSource.paginator = this.paginator;
     console.log(this.dataSource.paginator);
+    this.dataSource.sort = this.sort;
 
+
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   
